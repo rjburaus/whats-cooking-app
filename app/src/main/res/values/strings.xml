@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WhatsCookingApp</string>
+    <string name="current_ingredients">Current ingredients:</string>
+    <string name="list_ingredients_welcome_message">Hey there! To get started, add some ingredients.</string>
+    <string name="add_ingredient">Add Ingredient</string>
+    <string name="search">Search</string>
+    <string name="reset">Reset</string>
 </resources>
