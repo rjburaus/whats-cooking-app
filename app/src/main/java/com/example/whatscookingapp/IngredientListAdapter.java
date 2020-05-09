@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IngredientListAdapter extends BaseAdapter {
-    List<String> ingredients = new ArrayList<String>();
+    List<Ingredient> ingredients = new ArrayList<Ingredient>();
     Context mContext;
-    public IngredientListAdapter(Context context, ArrayList<String> list)
+    public IngredientListAdapter(Context context, ArrayList<Ingredient> list)
     {
         mContext = context;
         ingredients = list;
@@ -48,7 +48,8 @@ public class IngredientListAdapter extends BaseAdapter {
         int j = i+1;
 
         viewHolder.ingredientNumber.setText(j + ": ");
-        viewHolder.ingredientName.setText((String)getItem(i));
+        Ingredient ingredient = (Ingredient)getItem(i);
+        viewHolder.ingredientName.setText(toFirstCharUpperAll(ingredient.getIngredientName()));
         return convertView;
     }
     public static class ViewHolder
@@ -61,6 +62,13 @@ public class IngredientListAdapter extends BaseAdapter {
             ingredientNumber = number;
             ingredientName = name;
         }
+    }
+    private String toFirstCharUpperAll(String string){
+        StringBuffer sb=new StringBuffer(string);
+        for (int i = 0; i < sb.length(); i++)
+            if(i == 0 || sb.charAt(i - 1) == ' ')
+                sb.setCharAt(i, Character.toUpperCase(sb.charAt(i)));
+        return sb.toString();
     }
 }
 

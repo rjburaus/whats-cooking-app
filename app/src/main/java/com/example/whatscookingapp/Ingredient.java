@@ -2,10 +2,11 @@ package com.example.whatscookingapp;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ingredient {
+public class Ingredient implements Serializable {
     private String ingredientName;
     private String ingredientURL;
     private List<String> dependentRecipes;

@@ -1,7 +1,9 @@
 package com.example.whatscookingapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,9 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ListIngredientsActivity extends AppCompatActivity {
-    ArrayList<String> ingredientList;
     final String INTENTKEY = "ingredientList";
-    String[] intentIngredients = new String[0];
+    ArrayList<Ingredient> ingredientArrayList = new ArrayList<Ingredient>();
     Context mContext = ListIngredientsActivity.this;
     Button addIngredientButton;
     Button resetButton;
@@ -25,6 +26,7 @@ public class ListIngredientsActivity extends AppCompatActivity {
     IngredientListAdapter adapter;
     ListView listView;
     TextView welcomeText;
+    final int CHILDACTIVITY = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,22 +35,13 @@ public class ListIngredientsActivity extends AppCompatActivity {
         addIngredientButton = findViewById(R.id.addIngredientButton);
         resetButton = findViewById(R.id.resetButton);
         searchButton = findViewById(R.id.searchForRecipeButton);
-        ingredientList = new ArrayList<String>();
         listView = findViewById(R.id.ingredientListView);
         welcomeText = findViewById(R.id.listIngredientsWelcomeText);
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            intentIngredients = extras.getStringArray(INTENTKEY);
-            assert intentIngredients != null;
-            ingredientList.addAll(Arrays.asList(intentIngredients));
-        }
-        else{
-            ingredientList = new ArrayList<String>();
-        }
-        if (ingredientList.size() > 0){
+
+        if (ingredientArrayList.size() > 0){
             welcomeText.setVisibility(View.GONE);
         }
-        adapter = new IngredientListAdapter(mContext, ingredientList);
+        adapter = new IngredientListAdapter(mContext, ingredientArrayList);
         listView.setAdapter(adapter);
         setOnClickListeners();
 
@@ -59,17 +52,19 @@ public class ListIngredientsActivity extends AppCompatActivity {
         addIngredientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingredientList.add("Banana");
+                /*ingredientList.add("Banana");
                 ingredientList.add("Milk");
                 welcomeText.setVisibility(View.GONE);
-                adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();*/
+                Intent intent = new Intent(mContext, AddIngredientActivity.class);
+                startActivityForResult(intent, CHILDACTIVITY);
             }
         });
         //Reset Button Working
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ingredientList.clear();
+                ingredientArrayList.clear();
                 Toast.makeText(mContext, "Ingredient list cleared", Toast.LENGTH_SHORT).show();
                 adapter.notifyDataSetChanged();
                 welcomeText.setVisibility(View.VISIBLE);
@@ -84,5 +79,14 @@ public class ListIngredientsActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CHILDACTIVITY && resultCode == Activity.RESULT_OK){
+            assert (data != null);
+            Ingredient i = (Ingredient)data.getSerializableExtra(AddIngredientActivity.INTENTKEY);
+            ingredientArrayList.add(i);
+            adapter.notifyDataSetChanged();
+        }
+    }
 }

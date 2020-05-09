@@ -5,4 +5,6 @@
     <string name="add_ingredient">Add Ingredient</string>
     <string name="search">Search</string>
     <string name="reset">Reset</string>
+    <string name="go_back">Go Back</string>
+    <string name="tap_an_ingredient_to_add_it_to_the_list">Tap an ingredient to add it to the list.</string>
 </resources>
