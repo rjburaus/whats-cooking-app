@@ -5,40 +5,50 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageViewURL"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp" />
 
     <TextView
-        android:id="@+id/textViewRecipeName"
+        android:id="@+id/recipeNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageViewURL"
+        android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:text="Recipe Name"
         android:textSize="28sp" />
 
     <TextView
-        android:id="@+id/textViewIngredients"
+        android:id="@+id/ingredientsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewRecipeName"
+        android:layout_below="@id/recipeNameTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:text="Ingredients"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textViewInstructions"
+        android:id="@+id/instructionsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewIngredients"
+        android:layout_below="@id/ingredientsTextView"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginRight="25dp"
         android:text="1. Instructions"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="returnToSearchActivity"
+        android:text="Back" />
 </RelativeLayout>
