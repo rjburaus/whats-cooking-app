@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ListIngredientsActivity extends AppCompatActivity {
-    final String INTENTKEY = "ingredientList";
+    final static String INTENTKEY = "ingredientList";
     ArrayList<Ingredient> ingredientArrayList = new ArrayList<Ingredient>();
     Context mContext = ListIngredientsActivity.this;
     Button addIngredientButton;
@@ -74,7 +74,9 @@ public class ListIngredientsActivity extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(mContext, SearchActivity.class);
+                intent.putExtra(INTENTKEY, ingredientArrayList);
+                startActivity(intent);
             }
         });
     }
