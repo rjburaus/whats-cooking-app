@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -77,6 +78,7 @@ public class RecipeActivity extends AppCompatActivity {
 
         recipeNameTextView.setText(recipe.getRecipeName());
         ingredientsTextView.setText(displayIngredients());
+        instructionsTextView.setMovementMethod(new ScrollingMovementMethod());
         instructionsTextView.setText(recipe.getRecipeInstruction());
     }
 
