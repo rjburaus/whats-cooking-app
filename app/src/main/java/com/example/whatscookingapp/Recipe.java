@@ -2,11 +2,12 @@ package com.example.whatscookingapp;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Recipe {
+public class Recipe implements Serializable {
     private String recipeName;
     private String recipeInstruction;
     private String recipeURL;
