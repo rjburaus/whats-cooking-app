@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -37,6 +38,7 @@ public class SearchActivity extends AppCompatActivity {
     SearchActivityAdapter mAdapter;
     Context mContext;
     RecyclerView mRecyclerView;
+    Button backButton;
 
     final String RECIPESCOLLECTION = "Recipes";
     final String RECIPEINGREDIENTS = "recipeIngredients";
@@ -50,6 +52,13 @@ public class SearchActivity extends AppCompatActivity {
         mContext = SearchActivity.this;
         setContentView(R.layout.activity_search);
         mRecyclerView = findViewById(R.id.searchRecyclerView);
+        backButton = findViewById(R.id.searchReturnButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         ingredients = (ArrayList<Ingredient>) getIntent().getSerializableExtra(ListIngredientsActivity.INTENTKEY);
         assert (ingredients != null);

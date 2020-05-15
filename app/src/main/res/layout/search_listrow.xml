@@ -7,10 +7,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchRecipeNameText"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:padding="5dp"
+
+        />
     <ImageView
         android:id="@+id/searchRecipeImage"
         android:src="@drawable/ic_web_asset_black_40dp"
         android:layout_width="40dp"
-        android:layout_height="40dp"/>
+        android:layout_height="40dp"
+        android:padding="5dp"
+
+        />
 </LinearLayout>

@@ -34,15 +34,15 @@ public class SearchActivityAdapter extends RecyclerView.Adapter {
     //If no views available inflate one here and find views by id in viewholder constructor
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = View.inflate(mContext, R.layout.search_listrow, null);
-        Recipe r = recipes.get(i);
-        return new ViewHolder(view, mRowClickListener, r);
+        return new ViewHolder(view, mRowClickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         ViewHolder recyclerViewHolder = (ViewHolder)viewHolder;
 
-        Recipe data = ((ViewHolder) viewHolder).mRecipe;
+        Recipe data = recipes.get(i);
+        recyclerViewHolder.setmRecipe(data);
         recyclerViewHolder.mRecipeName.setText(toFirstCharUpperAll(data.getRecipeName()));
         recyclerViewHolder.itemView.setTag(i);
     }
@@ -64,14 +64,17 @@ public class SearchActivityAdapter extends RecyclerView.Adapter {
         Recipe mRecipe;
 
 
-        ViewHolder(View itemView, View.OnClickListener rowClickListener, Recipe recipe)
+        ViewHolder(View itemView, View.OnClickListener rowClickListener)
         {
             super(itemView);
-            mRecipe = recipe;
             this.itemView.setOnClickListener(rowClickListener);
             mRecipeName = itemView.findViewById(R.id.searchRecipeNameText);
             mRecipeImage = itemView.findViewById(R.id.searchRecipeImage);
 
+        }
+
+        public void setmRecipe(Recipe mRecipe) {
+            this.mRecipe = mRecipe;
         }
     }
     private String toFirstCharUpperAll(String string){
