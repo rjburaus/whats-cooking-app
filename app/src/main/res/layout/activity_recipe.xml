@@ -51,10 +51,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:onClick="returnToSearchActivity"
         android:text="Back" />
-<<<<<<< HEAD
+
 </RelativeLayout>
-=======
-</RelativeLayout>
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
+
+

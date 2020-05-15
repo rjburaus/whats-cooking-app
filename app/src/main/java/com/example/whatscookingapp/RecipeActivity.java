@@ -1,16 +1,13 @@
 package com.example.whatscookingapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-<<<<<<< HEAD
-=======
+
 import android.view.View;
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,13 +31,6 @@ public class RecipeActivity extends AppCompatActivity {
     Button backButton;
     Context mContext = RecipeActivity.this;
 
-<<<<<<< HEAD
-    public RecipeActivity (Recipe selectedRecipe) {
-        recipe = selectedRecipe;
-    }
-=======
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
-
     public String displayIngredients() {
         String result = "";
 
@@ -52,39 +42,24 @@ public class RecipeActivity extends AppCompatActivity {
         return result;
     }
 
-<<<<<<< HEAD
-    public void returnToSearchActivity() {
-        /*
-        Intent intent = new Intent(mContext, SearchActivity.class);
-        startActivity(intent);
-        */
-    }
-
-=======
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
-<<<<<<< HEAD
 
-=======
         recipe = (Recipe) getIntent().getSerializableExtra(SearchActivity.INTENTTAG);
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
         imageView = (ImageView) findViewById(R.id.imageView);
         recipeNameTextView = (TextView) findViewById(R.id.recipeNameTextView);
         ingredientsTextView = (TextView) findViewById(R.id.ingredientsTextView);
         instructionsTextView = (TextView) findViewById(R.id.instructionsTextView);
         backButton = (Button) findViewById(R.id.backButton);
-<<<<<<< HEAD
-=======
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
 
         ImageDownloader task = new ImageDownloader();
 
@@ -127,8 +102,7 @@ public class RecipeActivity extends AppCompatActivity {
             return null;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c1e6dfbfdd23e54f69153f552ab9ae466426dbba
+
+
+
