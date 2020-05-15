@@ -36,7 +36,7 @@ public class AddIngredientActivity extends AppCompatActivity {
     FirestoreRecyclerAdapter<Ingredient, IngredientViewHolder> adapter;
     final String INGREDIENTCOLLECTION = "Ingredients";
     final String INGREDIENTNAME = "ingredientName";
-    final String TAG = "debugTag";
+    final static String TAG = "debugTag";
     public static final String INTENTKEY = "IngredientKey";
     Context mContext = AddIngredientActivity.this;
     @Override
