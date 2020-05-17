@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ListIngredientsActivity extends AppCompatActivity {
-    final String INTENTKEY = "ingredientList";
+    final static String INTENTKEY = "ingredientList";
     ArrayList<Ingredient> ingredientArrayList = new ArrayList<Ingredient>();
     Context mContext = ListIngredientsActivity.this;
     Button addIngredientButton;
@@ -48,7 +48,6 @@ public class ListIngredientsActivity extends AppCompatActivity {
 
     }
     public void setOnClickListeners(){
-        //Add ingredient Button using filler data
         addIngredientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,11 +69,18 @@ public class ListIngredientsActivity extends AppCompatActivity {
                 welcomeText.setVisibility(View.VISIBLE);
             }
         });
-        //Search not yet implemented
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (ingredientArrayList.size() > 0)
+                {
+                    Intent intent = new Intent(mContext, SearchActivity.class);
+                    intent.putExtra(INTENTKEY, ingredientArrayList);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(mContext, "Need at least one ingredient in order to search", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

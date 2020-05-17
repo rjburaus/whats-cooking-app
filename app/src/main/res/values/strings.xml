@@ -7,4 +7,5 @@
     <string name="reset">Reset</string>
     <string name="go_back">Go Back</string>
     <string name="tap_an_ingredient_to_add_it_to_the_list">Tap an ingredient to add it to the list.</string>
+    <string name="tap_a_recipe_to_view_more_details">Tap a recipe to view more details</string>
 </resources>
